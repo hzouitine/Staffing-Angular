@@ -6,6 +6,10 @@ import { HeaderFilterComponent } from './header-filter.component';
   imports: [
     CommonModule
   ],
-  declarations: [HeaderFilterComponent]
+  declarations: [HeaderFilterComponent],
+  exports: [
+    HeaderFilterComponent
+
+  ]
 })
 export class HeaderFilterModule { }

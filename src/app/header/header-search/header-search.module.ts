@@ -11,6 +11,18 @@ import { CollapseExpandComponent } from './collapse-expand/collapse-expand.compo
   imports: [
     CommonModule
   ],
-  declarations: [HeaderSearchComponent, DateRangeComponent, MonthSelectorComponent, PaginationComponent, ResourcesPagesComponent, CollapseExpandComponent]
+  declarations: [
+    HeaderSearchComponent,
+    DateRangeComponent,
+    MonthSelectorComponent,
+    PaginationComponent,
+    ResourcesPagesComponent,
+    CollapseExpandComponent]
+  , exports: [HeaderSearchComponent,
+    DateRangeComponent,
+    MonthSelectorComponent,
+    PaginationComponent,
+    ResourcesPagesComponent,
+    CollapseExpandComponent]
 })
 export class HeaderSearchModule { }
