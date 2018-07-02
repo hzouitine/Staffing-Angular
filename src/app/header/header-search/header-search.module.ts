@@ -6,10 +6,12 @@ import { MonthSelectorComponent } from './month-selector/month-selector.componen
 import { PaginationComponent } from './pagination/pagination.component';
 import { ResourcesPagesComponent } from './resources-pages/resources-pages.component';
 import { CollapseExpandComponent } from './collapse-expand/collapse-expand.component';
+import { MaterialModule } from '../../module/material.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   declarations: [
     HeaderSearchComponent,
