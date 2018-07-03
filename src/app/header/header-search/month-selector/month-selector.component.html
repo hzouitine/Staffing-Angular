@@ -1,3 +1,5 @@
-<p>
-  month-selector works!
-</p>
+<button *ngFor="let m of months; let i = index" 
+  mat-button 
+  [disabled]="i == selectedMonth" 
+  (click)="searchByMonth(i)">
+  {{m}}</button>
