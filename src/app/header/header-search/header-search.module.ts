@@ -4,7 +4,6 @@ import { HeaderSearchComponent } from './header-search.component';
 import { DateRangeComponent } from './date-range/date-range.component';
 import { MonthSelectorComponent } from './month-selector/month-selector.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { ResourcesPagesComponent } from './resources-pages/resources-pages.component';
 import { CollapseExpandComponent } from './collapse-expand/collapse-expand.component';
 import { MaterialModule } from '../../module/material.module';
 
@@ -18,13 +17,11 @@ import { MaterialModule } from '../../module/material.module';
     DateRangeComponent,
     MonthSelectorComponent,
     PaginationComponent,
-    ResourcesPagesComponent,
     CollapseExpandComponent]
   , exports: [HeaderSearchComponent,
     DateRangeComponent,
     MonthSelectorComponent,
     PaginationComponent,
-    ResourcesPagesComponent,
     CollapseExpandComponent]
 })
 export class HeaderSearchModule { }
