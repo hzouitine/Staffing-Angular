@@ -1,3 +1,28 @@
-<p>
-  pagination works!
-</p>
+<div class="d-flex justify-content-between">
+  <div class="example-container">
+    Page of
+    <mat-form-field>
+      <mat-select [(value)]="pageSelected" (selectionChange)="onselectionChange()">
+        <mat-option *ngFor="let page of pages()" [value]="page">
+          {{page}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <i class="material-icons" (click)="navigate(-1)">
+      navigate_before
+    </i>
+    <i class="material-icons" (click)="navigate(1)">
+      navigate_next
+    </i> {{numberOfPages()}} ({{numResources}} resources)
+  </div>
+  <div class="example-container">
+    Resources by pages
+    <mat-form-field>
+      <mat-select [(value)]="resByPageSelectedIndex " (selectionChange)="onselectionChange()">
+        <mat-option *ngFor="let page of resByPage; let i = index" [value]="i">
+          {{page}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
