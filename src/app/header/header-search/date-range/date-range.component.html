@@ -1,25 +1,21 @@
-<div class="row">
-  <form [formGroup]="dateRangeForm">
-    <div class="form-group col-xs-6">
-      From:
-      <mat-form-field>
-        <input  matInput  formControlName="startDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)"  readonly="true">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div class="form-group col-xs-6">
-      To:
-      <mat-form-field>
-        <input  matInput  formControlName="endDate"[matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)" readonly="true" >
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-     
-    </div>
-    <i class="material-icons" (click)="addEvent(startDate,endDate)">
-        search
-        </i>
-  </form>
-  
-</div>
+<form [formGroup]="dateRangeForm" class="row">
+  <span class="col-lg-1 p-0">From: 
+  </span>
+    <mat-form-field class="col-lg-4">
+      <input matInput formControlName="startDate" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)"
+        readonly="true">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  <span class="col-lg-1 p-0"> To:
+  </span>
+  <mat-form-field class="col-lg-4">
+      <input matInput formControlName="endDate" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)"
+        readonly="true">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  <i class="material-icons col-lg-1 mt-1 p-0" (click)="addEvent(startDate,endDate)">
+    search
+  </i>
+</form>

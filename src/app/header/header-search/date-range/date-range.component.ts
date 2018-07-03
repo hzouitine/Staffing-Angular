@@ -23,7 +23,16 @@ export class DateRangeComponent implements OnInit {
 
   }
   addEvent(startDate, endDate) {
-    this.minDate = startDate;
+    if (this.startDate !== undefined) {
+
+      this.minDate = startDate;
+    }
+
+    else{
+      this.minDate = endDate;
+
+    }
+
     console.log('startDate', startDate);
     console.log('endDate', endDate);
   }

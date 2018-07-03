@@ -1,6 +1,7 @@
-
+<div class="row px-1">
 <button *ngFor="let m of months; let i = index" 
-  mat-button 
   [disabled]="i == selectedMonth" 
-  (click)="searchByMonth(i)">
+  (click)="searchByMonth(i)"
+  class="col-md-2 btn btn-light p-0">
   {{m}}</button>
+</div>
