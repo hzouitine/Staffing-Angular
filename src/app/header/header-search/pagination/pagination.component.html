@@ -1,7 +1,6 @@
-<div class="d-flex justify-content-between">
   <div class="row">
-    <span class="offset-lg-1 col-lg-2 pr-0">Page</span>
-    <mat-form-field class="col-lg-2 p-0">
+    <span class="offset-lg-1 col-lg-1">Page</span>
+    <mat-form-field class="col-lg-2">
 
       <mat-select [(value)]="pageSelected" (selectionChange)="onselectionChange()">
         <mat-option *ngFor="let page of pages()" [value]="page">
@@ -9,7 +8,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="col-lg-6 p-0">
+    <div class="col-lg-4 p-0">
       <i class="material-icons" (click)="navigate(-1)">
         navigate_before
       </i>
@@ -19,16 +18,13 @@
       of {{numberOfPages()}} ({{numResources}} resources)
     </div>
 
-  </div>
-  <div class="row">
-    <span class="ml-auto col-lg-7 text-right p-0">Resources by pages</span>
-    <mat-form-field class="col-lg-3">
+    <mat-form-field class="col-lg-2">
       <mat-select [(value)]="resByPageSelectedIndex " (selectionChange)="onselectionChange()">
         <mat-option *ngFor="let page of resByPage; let i = index" [value]="i">
           {{page}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="col-lg-2"></div>
-  </div>
+    <span class="ml-auto col-lg-2 p-0">Resources by pages</span>
+
 </div>
