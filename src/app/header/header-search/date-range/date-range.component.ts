@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-date-range',
@@ -11,7 +11,7 @@ export class DateRangeComponent implements OnInit {
   startDate: any;
   endDate: any;
   minDate: Date;
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
 
     this.dateRangeForm = new FormGroup({
       startDate: new FormControl(),
