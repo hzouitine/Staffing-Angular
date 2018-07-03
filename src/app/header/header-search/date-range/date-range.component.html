@@ -1,13 +1,20 @@
-
-<div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
-    <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+<div class="row">
+  <form [formGroup]="dateRangeForm">
+    <div class="form-group col-xs-6">
+      From:
+      <mat-form-field>
+        <input class="show" matInput  formControlName="startDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-
-
-    
-
-
+    </div>
+    <div class="form-group col-xs-6">
+      To:
+      <mat-form-field>
+        <input class="show" matInput  formControlName="endDate"[matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </form>
 </div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './module/material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import { MaterialModule } from './module/material.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+     ReactiveFormsModule,
     HeaderModule,
     MaterialModule,
     BrowserAnimationsModule

@@ -7,11 +7,14 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ResourcesPagesComponent } from './resources-pages/resources-pages.component';
 import { CollapseExpandComponent } from './collapse-expand/collapse-expand.component';
 import { MaterialModule } from '../../module/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+     ReactiveFormsModule
   ],
   declarations: [
     HeaderSearchComponent,
