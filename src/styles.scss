@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .mat-form-field-infix {
-    padding: .5em 0;
+    padding: 0 !important;
     border-top: 0em solid transparent;
 }
 
@@ -12,8 +12,6 @@ body *{
 
     font-size: 0.8rem !important;
 }
-
-
 .material-icons{
     font-size: 1rem !important;
     vertical-align: text-bottom !important;

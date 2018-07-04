@@ -1,5 +1,5 @@
   <div class="row">
-    <span class="offset-lg-1 col-lg-1">Page</span>
+    <span class="offset-lg-1 col-lg-1 text-right p-0">Page</span>
     <mat-form-field class="col-lg-2">
 
       <mat-select [(value)]="pageSelected" (selectionChange)="onselectionChange()">
@@ -8,7 +8,8 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div class="col-lg-4 p-0">
+    <div class="col-lg-3 p-0">
+      
       <i class="material-icons" (click)="navigate(-1)">
         navigate_before
       </i>
@@ -25,6 +26,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <span class="ml-auto col-lg-2 p-0">Resources by pages</span>
+    <span class="col-lg-3 p-0">Resources by pages</span>
 
 </div>
