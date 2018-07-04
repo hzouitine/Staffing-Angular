@@ -11,7 +11,7 @@ export class MonthSelectorComponent implements OnInit {
   private months: Array<string>;
 
   constructor() {
-    this.months = ['M', 'M+1', 'M+2', 'M+3', 'M+4', 'M+5'];
+    this.months = ['M', 'M+1', 'M+2', 'M+3', 'M+4'];
   }
 
   ngOnInit() {

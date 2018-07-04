@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-order.component.scss']
 })
 export class FilterOrderComponent implements OnInit {
+  private selectedMonth: number = -1;
+  private orderbyLabels: Array<string>;
+  constructor() { 
+    this.orderbyLabels = ['M', 'M+1', 'M+2', 'M+3', 'M+4', 'Year'];
 
-  constructor() { }
+  }
 
   ngOnInit() {
+  }
+
+  orderBy(index) {
+    this.selectedMonth = index;
+    console.log("order by "+this.orderbyLabels[index]);
   }
 
 }

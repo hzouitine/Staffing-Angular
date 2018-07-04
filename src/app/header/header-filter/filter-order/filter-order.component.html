@@ -1,3 +1,10 @@
-<p>
-  filter-order works!
-</p>
+<div class="row">
+  <span class="col-lg-3 p-0">Order By:</span>
+  <div class="col-lg-9 row">
+    <button *ngFor="let m of orderbyLabels; let i = index" 
+    [disabled]="i == selectedMonth" 
+    (click)="orderBy(i)" 
+    class="col-lg-2 btn btn-info p-0">
+      {{m}}</button>
+  </div>
+</div>
