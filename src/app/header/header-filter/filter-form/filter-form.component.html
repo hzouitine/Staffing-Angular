@@ -1,3 +1,74 @@
-<p>
-  filter-form works!
-</p>
+<form [formGroup]="filterForm" class="row">
+
+  <mat-form-field class="col-lg-3">
+
+    <input matInput placeholder="Ressource" aria-label="State" [matAutocomplete]="auto1" formControlName="food1">
+    <mat-autocomplete #auto1="matAutocomplete">
+      <mat-option *ngFor="let food of filtredResource | async" [value]="food.value">
+
+        <span>{{food.viewValue}}</span> |
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="col-lg-3">
+    <input matInput placeholder="Projects" aria-label="State" [matAutocomplete]="auto2" formControlName="food2">
+    <mat-autocomplete #auto2="matAutocomplete">
+      <mat-option *ngFor="let food of filtredProject | async" [value]="food.value">
+
+        <span>{{food.viewValue}}</span> |
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="col-lg-1">
+    <input matInput placeholder="Location" aria-label="State" [matAutocomplete]="auto3" formControlName="food3">
+    <mat-autocomplete #auto3="matAutocomplete">
+      <mat-option *ngFor="let food of filtredLocation | async" [value]="food.value">
+
+        <span>{{food.viewValue}}</span> |
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="col-lg-1">
+    <input matInput placeholder="U.O" aria-label="State" [matAutocomplete]="auto4" formControlName="food4">
+    <mat-autocomplete #auto4="matAutocomplete">
+      <mat-option *ngFor="let food of filtredUnitedOrganizational | async" [value]="food.value">
+
+        <span>{{food.viewValue}}</span> |
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="col-lg-1">
+    <input matInput placeholder="TL" aria-label="State" [matAutocomplete]="auto5" formControlName="food5">
+    <mat-autocomplete #auto5="matAutocomplete">
+      <mat-option *ngFor="let food of filtredTl | async" [value]="food.value">
+
+        <span>{{food.viewValue}}</span> |
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="col-lg-1 p-0">
+    <input matInput type="number" placeholder="Min">
+  </mat-form-field>
+  <mat-form-field class="col-lg-1">
+    <input matInput type="number" placeholder="Max">
+  </mat-form-field>
+  <div class="col-lg-1">
+    <button class="btn btn-light p-0" (click)="reset()">
+      <i class="material-icons">
+        cancel_presentation
+      </i>
+    </button>
+    <button class="btn btn-light p-0" >
+      <i class="material-icons">
+        event_available
+      </i>
+    </button>
+  </div>
+
+
+</form>
