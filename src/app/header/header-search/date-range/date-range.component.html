@@ -1,21 +1,20 @@
 <form [formGroup]="dateRangeForm" class="row">
-  <span class="col-lg-2 p-0">From: 
-  </span>
-    <mat-form-field class="col-lg-4 pl-1 pr-0">
-      <input matInput formControlName="startDate" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)"
+
+    <mat-form-field class="col-lg-5">
+      <input matInput formControlName="startDate" placeholder="From" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)"
         readonly="true">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-  <span class="col-lg-1 p-0"> To:
-  </span>
-  <mat-form-field class="col-lg-4 pl-1 pr-0">
-      <input matInput formControlName="endDate" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)"
+  
+  <mat-form-field class="col-lg-5">
+      <input matInput formControlName="endDate" placeholder="To" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)"
         readonly="true">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
-  <i class="material-icons col-lg-1 mt-1 p-0" (click)="addEvent(startDate,endDate)">
+    
+  <i class="material-icons col-lg-2 mt-2" (click)="addEvent(startDate,endDate)">
     search
   </i>
 </form>
