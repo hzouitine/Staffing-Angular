@@ -7,6 +7,7 @@ import { HeaderModule } from './header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './module/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { StaffingModule } from './staffing/staffing.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FormsModule,
      ReactiveFormsModule,
     HeaderModule,
+    StaffingModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
