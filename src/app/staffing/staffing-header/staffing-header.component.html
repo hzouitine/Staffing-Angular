@@ -1,5 +1,12 @@
-<tr class="header-cell">
-  <td class="text-bold">Name</td>
+<tr>
+  <td colspan="9" rowspan="2"></td>
+  <td class=" text-center" *ngFor="let m of months" [attr.colspan]="m.numberOfWeeks*7">{{m.month}}</td>
+</tr>
+<tr>
+  <td class="text-center table-warning" *ngFor="let week of weeks" colspan="7">{{"w"+week}}</td>
+</tr>
+<tr>
+  <td style="position: sticky;" class="text-bold">Name</td>
   <td class="text-bold">Loc</td>
   <td class="text-bold">Tech</td>
   <td class="text-bold">M</td>
@@ -7,9 +14,7 @@
   <td class="text-bold">M+2</td>
   <td class="text-bold">M+3</td>
   <td class="text-bold">M+4</td>
-  <td class="text-center" *ngFor="let day of daynumber; let i = index">
-    
-    <span class="text-bold extra-bold">{{day}}</span>
-  </td>
+  <td class="text-bold">Year</td>
+  <td *ngFor="let day of days">{{day}}</td>
 
 </tr>
