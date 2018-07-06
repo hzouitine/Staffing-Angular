@@ -20,8 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DateRangeComponent,
     MonthSelectorComponent,
     PaginationComponent,
-    CollapseExpandComponent]
-  , exports: [HeaderSearchComponent,
+    CollapseExpandComponent],
+   exports: [HeaderSearchComponent,
     DateRangeComponent,
     MonthSelectorComponent,
     PaginationComponent,

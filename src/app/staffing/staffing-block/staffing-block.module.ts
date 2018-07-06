@@ -8,6 +8,14 @@ import { RowStaffingComponent } from './row-staffing/row-staffing.component';
   imports: [
     CommonModule
   ],
-  declarations: [StaffingBlockComponent, RowResourceComponent, RowStaffingComponent]
+  declarations: [
+    StaffingBlockComponent,
+     RowResourceComponent,
+      RowStaffingComponent],
+  exports: [
+    StaffingBlockComponent
+    , RowResourceComponent,
+     RowStaffingComponent]
 })
 export class StaffingBlockModule { }
+ 
