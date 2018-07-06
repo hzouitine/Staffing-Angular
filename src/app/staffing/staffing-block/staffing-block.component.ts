@@ -12,7 +12,7 @@ export class StaffingBlockComponent implements OnInit {
   }
 
   statusStaffing = [];
-
+  dureeStaffing = [];
   
   constructor() { }
 
@@ -20,6 +20,11 @@ export class StaffingBlockComponent implements OnInit {
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < 56; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())]+" px-0 py-2");
+    }
+    
+    let d = ["1d", "1/2d",""];
+    for (let i = 0; i < 56; i++) {
+      this.dureeStaffing.push(d[Math.floor(d.length * Math.random())]);
     }
   }
 

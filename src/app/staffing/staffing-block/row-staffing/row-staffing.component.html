@@ -3,8 +3,7 @@
   draggable="true" (dragstart)="onDragstart($event)"
   (dragover)="onDragover($event)"
   (drop)="onDrop($event)"
-  
-  *ngFor="let d of dureeStaffing" class="px-0">
+    *ngFor="let d of dureeStaffing" class="px-0">
   <button *ngIf="d" type="button" 
   class="btn btn-primary btn-sm py-0" 
   [ngClass]="{'px-3' : d == '1d','px-2' : d == '1/2d'}">{{d}}</button>
