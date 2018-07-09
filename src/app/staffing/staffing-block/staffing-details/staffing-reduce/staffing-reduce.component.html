@@ -1,0 +1,25 @@
+<div style="max-width: 70rem;">
+
+  <form [formGroup]="reduceStaffingForm">
+
+    <h2>Resource :Resource X</h2>
+
+    <h2>Project :{{dataStaffing.staffing.projectInformation.projectName}}</h2>
+    <mat-form-field class="col-lg-5">
+      <input matInput formControlName="from" placeholder="From" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="from" (dateInput)="addEvent(startDate,endDate)"
+        readonly="true">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-5">
+      <input matInput formControlName="endDate" placeholder="To" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="to" (dateInput)="addEvent(startDate,endDate)"
+        readonly="true">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <button (click)="reduce(startDate,endDate)"> Reduce</button>
+    <button (click)=" cancel() ">Cancel</button>
+
+  </form>
+</div>
