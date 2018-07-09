@@ -25,7 +25,7 @@ export class StaffingDetailsComponent implements OnInit {
     console.log('reduce staffing');
     this.dialogRef = this.dialog.open(StaffingReduceComponent, {
       panelClass: 'staffing-form-dialog',
-      width: '350px',
+      width: '500px',
       data: {
         staffingReduce: this.tableData,
       }
@@ -34,6 +34,13 @@ export class StaffingDetailsComponent implements OnInit {
       this.ngOnInit();
     });
 
+
+
+  }
+
+  cancel(){
+    this.dialogRef.close();
+    
 
 
   }

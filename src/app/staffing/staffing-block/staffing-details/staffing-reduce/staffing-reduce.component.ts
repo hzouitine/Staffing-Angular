@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { StaffingDetailsComponent } from '../staffing-details.component';
 
 @Component({
   selector: 'app-staffing-reduce',
@@ -11,13 +12,17 @@ export class StaffingReduceComponent implements OnInit {
   reduceStaffingForm: FormGroup;
   from: any;
   to: any;
+  minDate: any ;
   dataStaffing;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any, private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<StaffingReduceComponent>) {
+    public dialogRef: MatDialogRef<StaffingReduceComponent>,
+  public dialogRefDetails: MatDialogRef<StaffingDetailsComponent>,) {
     this.dataStaffing = data.staffingReduce;
+    
     this.reduceStaffingForm = this.createReduceStaffingForm();
     this.from = new Date(this.dataStaffing.staffing.staffingPeriod.from);
     this.to = new Date(this.dataStaffing.staffing.staffingPeriod.to);
+   
   }
 
   ngOnInit() {
@@ -31,9 +36,25 @@ export class StaffingReduceComponent implements OnInit {
 
 
   }
+  addEvent(from, to) {
+    if (this.from !== undefined) {
+
+      this.minDate = from;
+    }
+
+    else{
+      this.minDate = to;
+
+    }
+
+  }
 
   cancel() {
     this.dialogRef.close();
+
+  }
+  reduceStaffing(){
+
 
   }
 
