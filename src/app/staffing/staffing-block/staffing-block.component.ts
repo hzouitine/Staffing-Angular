@@ -10,7 +10,7 @@ export class StaffingBlockComponent implements OnInit {
   resourceInfo = {
     name: "Leo Messi", Loc: "Sale", Tech: "SI", M: "100%", M1: "100%", M2: "100%", M3: "100%", M4: "100%", Year: "100%",
   }
-
+  project: string = "Staffing Project";
   statusStaffing = [];
   dureeStaffing = [];
   
