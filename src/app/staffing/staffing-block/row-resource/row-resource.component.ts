@@ -12,13 +12,12 @@ export class RowResourceComponent implements OnInit {
   @Input() statusStaffing;
   @Input() resourceInfo;
 
-  constructor(public dialog: MatDialog) {
-
-  } 
+  constructor(public dialog: MatDialog) {}
 
   createModel() {
     const dialogRef = this.dialog.open(CreateStaffingComponent, {
-      height : '100%',
+      height: '100%',
+      width: '60%',
       data: { resourceName : this.resourceInfo.name }
     });
     dialogRef.afterClosed().subscribe(result => {

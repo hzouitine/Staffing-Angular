@@ -29,9 +29,7 @@
           </mat-select>
         </mat-form-field>
         <div class="card-header mb-2">Project
-          <i 
-            class="float-right material-icons"
-            (click)="addProjectDialog()">
+          <i class="float-right material-icons" (click)="addProjectDialog()">
             add
           </i>
         </div>
@@ -104,8 +102,10 @@
           </label>
         </div>
         <hr>
-        <button mat-button [mat-dialog-close]="">Save</button>
-        <button mat-button mat-dialog-close>Close</button>
+        <div class="float-right">
+          <button mat-button [mat-dialog-close]="">Save</button>
+          <button mat-button mat-dialog-close>Close</button>
+        </div>
       </form>
     </div>
   </div>
