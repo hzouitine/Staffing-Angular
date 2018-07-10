@@ -1,10 +1,8 @@
 <tr app-row-resource 
+(size)="increment($event)"
 [statusStaffing]="statusStaffing"
 [resourceInfo]="resourceInfo"></tr>
-<tr app-row-staffing 
-[dureeStaffing]="dureeStaffing" 
-[project]="project"></tr>
-<tr app-row-staffing
-[dureeStaffing]="dureeStaffing" 
-[project]="project"></tr>
-
+<tr *ngFor="let dur of dureeStaffing" app-row-staffing 
+[dureeStaffing]="dur" 
+[project]="project">
+</tr>

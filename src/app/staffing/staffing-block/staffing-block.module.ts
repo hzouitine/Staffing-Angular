@@ -36,6 +36,5 @@ import { AddProjectComponent } from './add-project/add-project.component';
      entryComponents: [StaffingDetailsComponent, StaffingReduceComponent,
       CreateStaffingComponent,
       AddProjectComponent]
- 
 })
 export class StaffingBlockModule { }

@@ -28,7 +28,7 @@ export class StaffingReduceComponent implements OnInit {
   ngOnInit() {
   }
   createReduceStaffingForm() {
-    console.log('this.dataStaffing', this.dataStaffing)
+    console.log('this.dataStaffing', this.dataStaffing);
     return this.formBuilder.group({
       from: [this.dataStaffing.staffing.staffingPeriod.from],
       to: [this.dataStaffing.staffing.staffingPeriod.to],

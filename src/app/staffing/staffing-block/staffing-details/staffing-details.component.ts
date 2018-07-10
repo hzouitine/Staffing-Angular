@@ -12,8 +12,8 @@ export class StaffingDetailsComponent implements OnInit {
   filterForm: FormGroup;
   tableData: any;
   dialogRef: any;
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any, public dialog:  MatDialog,
-  public dialogRefDetails: MatDialogRef<StaffingDetailsComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) private data: any, public dialog: MatDialog,
+    public dialogRefDetails: MatDialogRef<StaffingDetailsComponent>) {
 
 
     this.tableData = data;
@@ -33,18 +33,14 @@ export class StaffingDetailsComponent implements OnInit {
       }
     });
     this.dialogRef.afterClosed().subscribe(result => {
-  
-    //this.dialogRefDetails.close();
     });
 
 
 
   }
 
-  cancel(){
+  cancel() {
     this.dialogRefDetails.close();
-    
-
 
   }
 }

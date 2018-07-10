@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '../../../../../node_modules/@angular/material';
 import { AddProjectComponent } from '../add-project/add-project.component';
 
@@ -9,11 +9,13 @@ import { AddProjectComponent } from '../add-project/add-project.component';
 })
 export class CreateStaffingComponent implements OnInit {
 
-  checkboxes = [{label : 'All week'}, {label : 'Monday'}
-, {label : 'Tuesday'}, {label : 'Wednsday'}
-, {label : 'Thursday'}, {label : 'Friday'}
-, {label : 'Saturday'}, {label : 'Sunday'}] ;
+  minDate: any;
+  checkboxes = [{ label: 'All week' }, { label: 'Monday' }
+    , { label: 'Tuesday' }, { label: 'Wednsday' }
+    , { label: 'Thursday' }, { label: 'Friday' }
+    , { label: 'Saturday' }, { label: 'Sunday' }];
 
+   
   constructor(
     public dialogRef: MatDialogRef<CreateStaffingComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

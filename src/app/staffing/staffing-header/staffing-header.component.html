@@ -1,5 +1,9 @@
 <tr>
-  <td colspan="9" rowspan="2"></td>
+  <td colspan="9" rowspan="2">
+    <i class="material-icons toggle" data-toggle="collapse" data-target="#header" aria-expanded="false" aria-controls="header">
+      menu
+      </i>
+  </td>
   <td class=" text-center" *ngFor="let m of months" [attr.colspan]="m.numberOfWeeks*7">{{m.month}}</td>
 </tr>
 <tr>
