@@ -1,0 +1,61 @@
+<div class="card border-light mb-3 form">
+  <div class="card-header">
+    <h1>Reduce Staffing</h1>
+  </div>
+
+  <form [formGroup]="reduceStaffingForm">
+
+
+    <div class="row mt-3 ml-2">
+      <h2 class="col-lg-3">Resource :</h2>
+      <h2 class="col-lg-9">Resource X </h2>
+    </div>
+    <div class="row mt-3 ml-2">
+        <h2 class="col-lg-3">Project : </h2>
+        <h2 class="col-lg-9">{{dataStaffing.staffing.projectInformation.projectName}} </h2>
+      </div>
+    <div class="row mt-3 ml-2">
+      <h2 class="col-lg-2 mt-2">From : </h2>
+      <mat-form-field class="col-lg-9">
+        <input matInput formControlName="from" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="from" (dateInput)="addEvent(startDate,endDate)"
+          readonly="true">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row mt-3 ml-2">
+      <h2 class="col-lg-2 mt-2 ">To : </h2>
+      <mat-form-field class="col-lg-9">
+        <input matInput formControlName="to" [min]="minDate" [matDatepicker]="picker2" [(ngModel)]="to" (dateInput)="addEvent(from,to)"
+          readonly="true">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div class="card-footer row bg-white">
+        <div class="col-lg-6">
+          
+        </div>
+        <div class="col-lg-6">
+          <button class="btn btn-default" (click)="reduceStaffing()"> Reduce Staffing</button>
+          <button class="btn btn-default" (click)="cancel()">Cancel</button>
+        </div>
+    
+      </div>
+    <!-- <mat-form-field>
+      <input matInput formControlName="endDate" placeholder="To" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="to" (dateInput)="addEvent(startDate,endDate)"
+        readonly="true">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field> -->
+    <!-- <button (click)="reduce(startDate,endDate)"> Reduce</button>
+    <button (click)=" cancel() ">Cancel</button> -->
+
+  </form>
+
+
+</div>

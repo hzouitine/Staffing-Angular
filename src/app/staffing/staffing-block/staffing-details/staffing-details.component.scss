@@ -1,0 +1,13 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
