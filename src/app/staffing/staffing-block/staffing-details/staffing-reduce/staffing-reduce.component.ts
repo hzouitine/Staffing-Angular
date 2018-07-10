@@ -12,17 +12,17 @@ export class StaffingReduceComponent implements OnInit {
   reduceStaffingForm: FormGroup;
   from: any;
   to: any;
-  minDate: any ;
+  minDate: any;
   dataStaffing;
   constructor(@Inject(MAT_DIALOG_DATA) private data: any, private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<StaffingReduceComponent>,
-  public dialogRefDetails: MatDialogRef<StaffingDetailsComponent>,) {
+    public dialogRefDetails: MatDialogRef<StaffingDetailsComponent>, ) {
     this.dataStaffing = data.staffingReduce;
-    
+
     this.reduceStaffingForm = this.createReduceStaffingForm();
     this.from = new Date(this.dataStaffing.staffing.staffingPeriod.from);
     this.to = new Date(this.dataStaffing.staffing.staffingPeriod.to);
-   
+
   }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class StaffingReduceComponent implements OnInit {
       this.minDate = from;
     }
 
-    else{
+    else {
       this.minDate = to;
 
     }
@@ -50,12 +50,12 @@ export class StaffingReduceComponent implements OnInit {
   }
 
   cancel() {
+
     this.dialogRef.close();
-
   }
-  reduceStaffing(){
+  reduceStaffing() {
 
-
+    this.dialogRef.close();
   }
 
 }
