@@ -7,6 +7,9 @@ import { StaffingDetailsComponent } from './staffing-details/staffing-details.co
 import { MaterialModule } from '../../module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StaffingReduceComponent } from './staffing-details/staffing-reduce/staffing-reduce.component';
+import { CreateStaffingComponent } from './create-staffing/create-staffing.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+
 
 @NgModule({
   imports: [
@@ -14,11 +17,13 @@ import { StaffingReduceComponent } from './staffing-details/staffing-reduce/staf
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
+
   ],
   declarations: [
     StaffingBlockComponent,
      RowResourceComponent,
       RowStaffingComponent,
+
       StaffingDetailsComponent,
       StaffingReduceComponent],
   exports: [
@@ -27,7 +32,9 @@ import { StaffingReduceComponent } from './staffing-details/staffing-reduce/staf
      RowStaffingComponent,
      StaffingDetailsComponent,
      StaffingReduceComponent],
-     entryComponents: [StaffingDetailsComponent, StaffingReduceComponent]
+     entryComponents: [StaffingDetailsComponent, StaffingReduceComponent,
+      CreateStaffingComponent,
+      AddProjectComponent],
+ 
 })
 export class StaffingBlockModule { }
- 

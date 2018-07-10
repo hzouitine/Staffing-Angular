@@ -1,7 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+
 import { MatDialog } from '@angular/material';
 import { FormGroup } from '@angular/forms';
 import { StaffingDetailsComponent } from '../staffing-details/staffing-details.component';
+
+
+import { CreateStaffingComponent } from '../create-staffing/create-staffing.component';
+
 
 @Component({
   selector: '[app-row-staffing]',
@@ -11,8 +16,10 @@ import { StaffingDetailsComponent } from '../staffing-details/staffing-details.c
 export class RowStaffingComponent implements OnInit {
 
   @Input() dureeStaffing = [];
-  dragov: boolean = false;
+@Input() project: string;
+  dragov = false;
   draggedTd: any = null;
+
   dialogRef: any;
   constructor(public dialog: MatDialog) { }
 
@@ -21,7 +28,6 @@ export class RowStaffingComponent implements OnInit {
   }
 
   onDragstart(e) {
-    console.log();
 
     this.draggedTd = e.target;
     console.log(e.target);
@@ -33,8 +39,7 @@ export class RowStaffingComponent implements OnInit {
       e.target.classList.add('bg-info');
       e.preventDefault();
       e.stopPropagation();
-    }
-    else {
+    } else {
       e.target.classList.add('bg-danger');
 
     }
@@ -56,7 +61,7 @@ export class RowStaffingComponent implements OnInit {
     this.draggedTd = null;
   }
   detailStaffing() {
-    // let leave: Leave;
+    
     const staffing = {
       title: 'Resource X Staffing-details',
       staffingPeriod: { from: '2018-07-19', to: '2018-07-19', Duration: '8h' },
