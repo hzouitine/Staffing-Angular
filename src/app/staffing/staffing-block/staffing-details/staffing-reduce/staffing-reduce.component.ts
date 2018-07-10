@@ -40,9 +40,7 @@ export class StaffingReduceComponent implements OnInit {
     if (this.from !== undefined) {
 
       this.minDate = from;
-    }
-
-    else {
+    } else {
       this.minDate = to;
 
     }
