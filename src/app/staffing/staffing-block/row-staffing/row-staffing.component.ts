@@ -16,7 +16,7 @@ import { CreateStaffingComponent } from '../create-staffing/create-staffing.comp
 export class RowStaffingComponent implements OnInit {
 
   @Input() dureeStaffing = [];
-@Input() project: string;
+  @Input() project: string;
   dragov = false;
   draggedTd: any = null;
 
@@ -61,7 +61,7 @@ export class RowStaffingComponent implements OnInit {
     this.draggedTd = null;
   }
   detailStaffing() {
-    
+
     const staffing = {
       title: 'Resource X Staffing-details',
       staffingPeriod: { from: '2018-07-19', to: '2018-07-19', Duration: '8h' },
@@ -83,7 +83,8 @@ export class RowStaffingComponent implements OnInit {
 
     this.dialogRef = this.dialog.open(StaffingDetailsComponent, {
       panelClass: 'staffing-form-dialog',
-      width: '1000px',
+      width: '60%',
+      height: '100%',
       data: {
         staffing: staffing,
       }

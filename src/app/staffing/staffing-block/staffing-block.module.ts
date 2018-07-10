@@ -23,7 +23,8 @@ import { AddProjectComponent } from './add-project/add-project.component';
     StaffingBlockComponent,
      RowResourceComponent,
       RowStaffingComponent,
-
+      CreateStaffingComponent,
+      AddProjectComponent,
       StaffingDetailsComponent,
       StaffingReduceComponent],
   exports: [
@@ -34,7 +35,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
      StaffingReduceComponent],
      entryComponents: [StaffingDetailsComponent, StaffingReduceComponent,
       CreateStaffingComponent,
-      AddProjectComponent],
+      AddProjectComponent]
  
 })
 export class StaffingBlockModule { }

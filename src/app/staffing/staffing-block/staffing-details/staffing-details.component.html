@@ -80,14 +80,14 @@
 
     </div>
   </div>
-  <div class="card-footer row bg-white">
-    <div class="col-lg-10">
+  <hr>
+  <div class="container">
+    <div class="row px-2">
       <button class="btn btn-default" (click)="reduceStaffing()">Reduce Staffing</button>
+      <div class="ml-auto">
+        <button class="mx-1 btn btn-default"> Delete</button>
+        <button class="mx-1 btn btn-default" (click)="cancel()">Cancel</button>
+      </div>
     </div>
-    <div class="col-lg-2">
-      <button class="btn btn-default"> Delete</button>
-      <button class="btn btn-default" (click)="cancel()">Cancel</button>
-    </div>
-
   </div>
 </div>
