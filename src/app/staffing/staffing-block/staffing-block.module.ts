@@ -5,6 +5,7 @@ import { RowResourceComponent } from './row-resource/row-resource.component';
 import { RowStaffingComponent } from './row-staffing/row-staffing.component';
 import { CreateStaffingComponent } from './create-staffing/create-staffing.component';
 import { MaterialModule } from '../../module/material.module';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   imports: [
@@ -15,11 +16,12 @@ import { MaterialModule } from '../../module/material.module';
     StaffingBlockComponent,
      RowResourceComponent,
       RowStaffingComponent,
-      CreateStaffingComponent],
+      CreateStaffingComponent,
+      AddProjectComponent],
   exports: [
     StaffingBlockComponent
     , RowResourceComponent,
      RowStaffingComponent],
-     entryComponents : [CreateStaffingComponent]
+     entryComponents : [CreateStaffingComponent, AddProjectComponent]
 })
 export class StaffingBlockModule { }
