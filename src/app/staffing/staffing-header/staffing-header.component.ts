@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StaffingDateHeaderServiceService } from '../../services/staffing-date-header-service.service';
 
 @Component({
   selector: '[app-staffing-header]',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./staffing-header.component.scss']
 })
 export class StaffingHeaderComponent implements OnInit {
+  @Input() from;
+  @Input() to;
   months = [{
     month: "July 2018",
     numberOfWeeks: 4
@@ -15,7 +18,7 @@ export class StaffingHeaderComponent implements OnInit {
     numberOfWeeks: 4
   }];
   weeks = [1, 2, 3, 4, 5, 6, 7, 8]
-  days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,25,26]
+  days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
   data = {
     "months": [{
       "month": "July 2018",
@@ -55,9 +58,12 @@ export class StaffingHeaderComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private staffingDateHeaderServiceService: StaffingDateHeaderServiceService) { }
 
   ngOnInit() {
+    console.log('from', this.from);
+    console.log('to', this.to);
+    this.staffingDateHeaderServiceService.getObject(this.from, this.to);
   }
 
 }
