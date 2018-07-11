@@ -28,13 +28,10 @@ export class RowStaffingComponent implements OnInit {
   }
 
   onDragstart(e) {
-
     this.draggedTd = e.target;
-    console.log(e.target);
   }
 
   onDragover(e) {
-    console.log(e.target);
     if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('button') && this.draggedTd) {
       e.target.classList.add('bg-info');
       e.preventDefault();
@@ -79,8 +76,6 @@ export class RowStaffingComponent implements OnInit {
         actionType: 'Created with resize option'
       }]
     };
-
-    console.log('staffing', staffing);
 
     this.dialogRef = this.dialog.open(StaffingDetailsComponent, {
       panelClass: 'staffing-form-dialog',

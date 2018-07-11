@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { data } from '../data';
 
 @Component({
   selector: '[app-staffing-block]',
@@ -12,7 +13,7 @@ export class StaffingBlockComponent implements OnInit {
   project: string = "Staffing Project";
   statusStaffing = [];
   dureeStaffing = [];
-
+  data;
   constructor() { }
 
   tabDureeStaffing() {
@@ -24,6 +25,11 @@ export class StaffingBlockComponent implements OnInit {
     this.dureeStaffing.push(tab);
   }
   ngOnInit() {
+    this.data = data;
+
+      console.log('d', data);
+    
+
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < 56; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
