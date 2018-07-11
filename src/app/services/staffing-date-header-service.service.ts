@@ -39,24 +39,24 @@ export class StaffingDateHeaderServiceService {
       if (week.week() === weekFrom) {
         this.table.push({
           weekName: week.week(),
-          dayFrom: dateFrom.date(),
-          dayTo: week.endOf('week').date(),
+          dayFrom: dateFrom.toDate(),
+          dayTo: week.endOf('week').toDate(),
           month: week.month(),
           days: []
         });
       } else if (week.week() === weekTo) {
         this.table.push({
           weekName: week.week(),
-          dayFrom: week.startOf('week').date(),
-          dayTo: dateTo.date(),
+          dayFrom: week.startOf('week').toDate(),
+          dayTo: dateTo.toDate(),
           month: week.month(),
           days: []
         });
       } else {
         this.table.push({
           weekName: week.week(),
-          dayFrom: week.startOf('week').date(),
-          dayTo: week.endOf('week').date(),
+          dayFrom: week.startOf('week').toDate(),
+          dayTo: week.endOf('week').toDate(),
           month: week.month(),
           days: []
 
@@ -66,8 +66,7 @@ export class StaffingDateHeaderServiceService {
     }
 
 
-    //console.log(this.table);
-    console.log("StaffingDateHeaderServiceService", moment.locale());
+   
   }
 
 
@@ -78,6 +77,7 @@ export class StaffingDateHeaderServiceService {
       this.dataStaffingHeader.push({ monthName: monthFrom, weeks: [] });
       monthFrom++;
     }
+    
   }
 
 
@@ -90,12 +90,21 @@ export class StaffingDateHeaderServiceService {
   }
 
   addDays() {
+
     this.table
       .forEach(item => {
-        let day = item.dayFrom;
-        while (day <= item.dayTo) {
-          item.days.push(day);
-          day++;
+
+        //let day = item.dayFrom;
+
+
+        let date = item.dayFrom;
+        let from = moment(date);
+        let to = moment(item.dayTo);
+
+
+        while (from.isSameOrBefore(to)) {
+          item.days.push(from.dates());
+          from.add(1, "days");
         }
       });
   }
