@@ -8,8 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './module/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StaffingModule } from './staffing/staffing.module';
-
-
+import * as moment from 'moment';
+moment.locale('fr');
 @NgModule({
   declarations: [
     AppComponent
