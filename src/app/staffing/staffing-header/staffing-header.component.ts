@@ -63,7 +63,7 @@ export class StaffingHeaderComponent implements OnInit {
   ngOnInit() {
     console.log('from', this.from);
     console.log('to', this.to);
-    this.staffingDateHeaderServiceService.getObject(this.from, this.to);
+    this.staffingDateHeaderServiceService.parse(this.from, this.to);
   }
 
 }
