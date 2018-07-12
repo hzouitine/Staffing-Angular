@@ -66,7 +66,6 @@ export class StaffingHeaderComponent implements OnInit {
     console.log('from', this.from);
     console.log('to', this.to);
     this.data =  this.staffingDateHeaderServiceService.parse(this.from, this.to);      
-    });
   }
 
 }
