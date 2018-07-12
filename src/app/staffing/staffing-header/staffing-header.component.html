@@ -4,10 +4,10 @@
       menu
       </i>
   </td>
-  <td class=" text-center" *ngFor="let m of months" [attr.colspan]="m.numberOfWeeks*7">{{m.month}}</td>
+  <td class=" text-center" *ngFor="let m of data.months" [attr.colspan]="m.week">{{m.month}}</td>
 </tr>
 <tr>
-  <td class="text-center table-warning" *ngFor="let week of weeks" colspan="7">{{"w"+week}}</td>
+  <td class="text-center table-warning" *ngFor="let week of data.weeks" [attr.colspan]="week.dayNum">{{"w"+week.week}}</td>
 </tr>
 <tr>
   <td style="position: sticky;" class="text-bold">Name</td>
@@ -19,6 +19,6 @@
   <td class="text-bold">M+3</td>
   <td class="text-bold">M+4</td>
   <td class="text-bold">Year</td>
-  <td *ngFor="let day of days">{{day}}</td>
+  <td *ngFor="let day of data.days">{{day}}</td>
 
 </tr>

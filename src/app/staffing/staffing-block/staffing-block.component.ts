@@ -19,19 +19,18 @@ export class StaffingBlockComponent implements OnInit {
   tabDureeStaffing() {
     let tab = [];
     let d = ["1d", "1/2d", ""];
-    for (let i = 0; i < 56; i++) {
+    for (let i = 0; i < 31; i++) {
       tab.push(d[Math.floor(d.length * Math.random())]);
     }
     this.dureeStaffing.push(tab);
   }
   ngOnInit() {
     this.data = data;
-
       console.log('d', data);
     
 
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
-    for (let i = 0; i < 56; i++) {
+    for (let i = 0; i < 31; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
     }
     this.tabDureeStaffing();

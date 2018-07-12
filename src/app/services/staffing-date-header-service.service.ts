@@ -20,20 +20,23 @@ export class StaffingDateHeaderServiceService {
   */
   constructor() { }
 
-  dataStaffingHeader = [];
+  dataStaffingHeader = {
+    months: [],
+    weeks: [],
+    days: []
+  };
   from: string;
   to: string;
   table = [];
-
   getObject() {
 
     this.table = [];
-    let dateFrom = moment(this.from, "DD-MM-YYYY");
-    let dateTo = moment(this.to, "DD-MM-YYYY");
+    let dateFrom = moment(this.from, 'DD-MM-YYYY');
+    let dateTo = moment(this.to, 'DD-MM-YYYY');
 
     const weekFrom = dateFrom.weeks();
     const weekTo = dateTo.weeks();
-    let week = moment(this.from, "DD-MM-YYYY");
+    let week = moment(this.from, 'DD-MM-YYYY');
 
     while (week.week() <= weekTo) {
       if (week.week() === weekFrom) {
@@ -71,26 +74,28 @@ export class StaffingDateHeaderServiceService {
 
 
   addMonths() {
-    let monthFrom = moment(this.from, "DD-MM-YYYY").month();
-    const monthTo = moment(this.to, "DD-MM-YYYY").month();
-    while (monthFrom <= monthTo) {
-      this.dataStaffingHeader.push({ monthName: monthFrom, weeks: [] });
-      monthFrom++;
+    let monthFrom = moment(this.from, 'DD-MM-YYYY');
+    const monthTo = moment(this.to, 'DD-MM-YYYY');
+    while (monthFrom.isSameOrBefore(monthTo, 'month')) {
+      this.dataStaffingHeader.months.push({ month: moment(monthFrom) });
+      monthFrom.add(1, 'months');
     }
 
   }
 
 
   addWeeks() {
-    this.dataStaffingHeader.forEach((item) => {
-      this.table
-        .filter((itm) => itm.month === item.monthName)
-        .forEach(week => item.weeks.push({ weekName: week.weekName, days: week.days }));
+    this.dataStaffingHeader.months.forEach((item) => {
+      let weeks = this.table.filter((itm) => itm.month === item.month.month());
+      item.week = weeks.map(week => week.days.length).reduce((accumulator, currentValue) => accumulator + currentValue);
+      weeks.forEach(week => this.dataStaffingHeader.weeks.push({ week: week.weekName, dayNum: week.days.length }));
+
     });
+
   }
 
   addDays() {
-
+    /* de prefence push date a la place de number a refaire**/
     this.table
       .forEach(item => {
 
@@ -98,9 +103,14 @@ export class StaffingDateHeaderServiceService {
 
         while (from.isSameOrBefore(item.dayTo)) {
           item.days.push(from.date());
-          from.add(1, "days");
+          this.dataStaffingHeader.days.push(from.date());
+          from.add(1, 'days');
         }
       });
+  }
+
+  formatMonths() {
+    this.dataStaffingHeader.months.forEach(element => { element.month = element.month.format("MMM YYYY"); });
   }
   parse(form, to) {
     this.from = form;
@@ -109,9 +119,11 @@ export class StaffingDateHeaderServiceService {
     this.addMonths();
     this.addDays();
     this.addWeeks();
+    this.formatMonths();
 
     console.log('table', this.table);
     console.log('this.dataStaffingHeader', this.dataStaffingHeader);
-
+    return this.dataStaffingHeader;
   }
+
 }
