@@ -88,7 +88,7 @@ export class StaffingDateHeaderServiceService {
   addWeeks() {
     this.dataStaffingHeader.months.forEach((item) => {
       let weeks = this.table.filter((itm) => itm.month === item.month.month());
-      item.week = weeks.map(week => week.days.length).reduce((accumulator, currentValue) => accumulator + currentValue);
+      item.week = this.sum(weeks.map(week => week.days.length));
       weeks.forEach(week => this.dataStaffingHeader.weeks.push({ week: week.weekName, dayNum: week.days.length }));
 
     });
@@ -111,6 +111,13 @@ export class StaffingDateHeaderServiceService {
       });
   }
 
+  sum(tab) {
+    let sum = 0;
+    for (let i of tab) {
+      sum += i;
+    }
+    return sum;
+  }
   formatMonths() {
     this.dataStaffingHeader.months.forEach(element => { element.month = element.month.format("MMM YYYY"); });
   }

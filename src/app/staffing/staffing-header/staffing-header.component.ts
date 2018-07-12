@@ -68,4 +68,8 @@ export class StaffingHeaderComponent implements OnInit {
     this.data =  this.staffingDateHeaderServiceService.parse(this.from, this.to);      
   }
 
+  ngOnChanges(){
+    this.data =  this.staffingDateHeaderServiceService.parse(this.from, this.to);     
+  }
+
 }
