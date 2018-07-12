@@ -107,8 +107,7 @@ export class StaffingDateHeaderServiceService {
 
         let from = moment(item.dayFrom);
 
-        while (from.isSameOrBefore(item.dayTo) ||
-          (item.dayTo.isBefore(from) && item.dayTo.year() > from.year())) {
+        while (from.isSameOrBefore(item.dayTo)) {
           console.log('addDays() ');
           item.days.push(from.date());
           this.dataStaffingHeader.days.push(from.date());
