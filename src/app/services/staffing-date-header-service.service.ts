@@ -39,7 +39,7 @@ export class StaffingDateHeaderServiceService {
     let week = moment(this.from, 'DD-MM-YYYY');
 
     while (week.isSameOrBefore(dateTo)) {
-      
+
       if (week.week() === weekFrom) {
         this.table.push({
           weekName: week.week(),
@@ -66,7 +66,7 @@ export class StaffingDateHeaderServiceService {
 
         });
       }
-      week.startOf("w").add(1, 'w');
+      week.startOf("week").add(1, 'w');
     }
 
 
@@ -76,14 +76,14 @@ export class StaffingDateHeaderServiceService {
 
   addMonths() {
 
-    let monthFrom = moment(this.from, 'DD-MM-YYYY');
-    const monthTo = moment(this.to, 'DD-MM-YYYY');
-    while (monthFrom.isSameOrBefore(monthTo, 'month') || (
-
-      monthTo.isBefore(monthFrom, 'month') && monthTo.year() > monthFrom.year())) {
-      console.log('addMonths()');
+    let monthFrom = moment(this.from, 'DD-MM-YYYY').startOf('month');
+    const monthTo = moment(this.to, 'DD-MM-YYYY').startOf('month');
+    while (monthFrom.isSameOrBefore(monthTo)) {
       this.dataStaffingHeader.months.push({ month: moment(monthFrom) });
-      monthFrom.add(1, 'months');
+      console.log(moment(monthFrom).format());
+      monthFrom.add(1, 'months').startOf('month');
+      console.log(moment(monthFrom).format());
+
     }
 
   }
