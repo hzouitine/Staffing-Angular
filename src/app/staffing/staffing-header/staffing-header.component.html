@@ -2,9 +2,11 @@
   <td colspan="9" rowspan="2">
     <i class="material-icons toggle" data-toggle="collapse" data-target="#header" aria-expanded="false" aria-controls="header">
       menu
-      </i>
+    </i>
   </td>
-  <td class=" text-center" *ngFor="let m of data.months" [attr.colspan]="m.week">{{m.month}}</td>
+  <ng-container *ngFor="let m of data.months">
+    <td class="text-center" *ngIf="m.week > 0" [attr.colspan]="m.week">{{m.month}}</td>
+  </ng-container>
 </tr>
 <tr>
   <td class="text-center table-warning" *ngFor="let week of data.weeks" [attr.colspan]="week.dayNum">{{"w"+week.week}}</td>

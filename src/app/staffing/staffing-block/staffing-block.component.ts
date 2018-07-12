@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { data } from '../data';
+import { StaffingDateHeaderServiceService } from '../../services/staffing-date-header-service.service';
 
 @Component({
   selector: '[app-staffing-block]',
@@ -14,23 +15,25 @@ export class StaffingBlockComponent implements OnInit {
   statusStaffing = [];
   dureeStaffing = [];
   data;
-  constructor() { }
+  size;
+  constructor(private staffingServiceHeader: StaffingDateHeaderServiceService) { }
 
   tabDureeStaffing() {
     let tab = [];
     let d = ["1d", "1/2d", ""];
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < this.size; i++) {
       tab.push(d[Math.floor(d.length * Math.random())]);
     }
     this.dureeStaffing.push(tab);
   }
   ngOnInit() {
     this.data = data;
-      console.log('d', data);
-    
+    this.size = this.staffingServiceHeader.parse(this.data.from, this.data.to).days.length;
+    console.log('d', data);
+
 
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < this.size; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
     }
     this.tabDureeStaffing();
@@ -39,6 +42,17 @@ export class StaffingBlockComponent implements OnInit {
   increment(e) {
     console.log(e);
     this.tabDureeStaffing();
+  }
+
+  ngOnChanges(){
+    this.size = this.staffingServiceHeader.parse(this.data.from, this.data.to).days.length;
+    
+    let colors = ["bg-success", "bg-danger", "bg-secondary"];
+    for (let i = 0; i < this.size; i++) {
+      this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
+    }
+    this.tabDureeStaffing();
+
   }
 
 }
