@@ -1,7 +1,0 @@
-<div class="row justify-content-lg-center  align-items-center">
-<button *ngFor="let m of months; let i = index" 
-  [disabled]="i == selectedMonth" 
-  (click)="searchByMonth(i)"
-  class="col-md-2 btn btn-secondary p-0">
-  {{m}}</button>
-</div>

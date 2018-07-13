@@ -1,6 +1,8 @@
+import * as moment from 'moment';
+
 export const data = {
-    'from': '10-09-2019',
-    'to': '07-10-2019',
+    'from': moment().format('DD-MM-YYYY'),
+    'to': moment().add(2, 'M').format('DD-MM-YYYY'),
     'block': [
         {
             'resource': {
