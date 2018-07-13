@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, FormBuilder } from '@angular/forms';
-
+import { data } from '../../../staffing/data';
+import * as moment from 'moment';
 @Component({
   selector: 'app-date-range',
   templateUrl: './date-range.component.html',
@@ -22,19 +23,13 @@ export class DateRangeComponent implements OnInit {
   ngOnInit() {
 
   }
-  addEvent(startDate, endDate) {
-    if (this.startDate !== undefined) {
+  addEvent(startDate) {
 
-      this.minDate = startDate;
-    }
-
-    else{
-      this.minDate = endDate;
-
-    }
-
+    data.from = moment(startDate).format('DD-MM-YYYY');
+    data.to = moment(startDate).add(2, 'M').format('DD-MM-YYYY');
+    
     console.log('startDate', startDate);
-    console.log('endDate', endDate);
+    console.log('data', data);
   }
 
 }
