@@ -33,20 +33,9 @@ export class RowStaffingComponent implements OnInit {
 
   onDragover(e) {
     if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('button') && this.draggedTd) {
-      e.target.classList.add('bg-info');
       e.preventDefault();
       e.stopPropagation();
-    } else {
-      e.target.classList.add('bg-danger');
-
     }
-  }
-  onDragleave(e) {
-    e.target.classList.remove('bg-info');
-    e.target.classList.remove('bg-danger');
-    e.preventDefault();
-    e.stopPropagation();
-
   }
 
   onDrop(e) {
