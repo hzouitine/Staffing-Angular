@@ -12,7 +12,7 @@ export class RowResourceComponent implements OnInit {
 
   @Input() statusStaffing;
   @Input() resourceInfo;
-  @Output() size = new EventEmitter < number > ();
+  @Output() size = new EventEmitter<number>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -32,4 +32,7 @@ export class RowResourceComponent implements OnInit {
 
   }
 
+  ngOnChanges() {
+ 
+  }
 }

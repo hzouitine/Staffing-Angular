@@ -1,20 +1,16 @@
-<form [formGroup]="dateRangeForm" class="row">
+<form [formGroup]="dateRangeForm" class="d-flex justify-content-between" >
 
-    <mat-form-field class="col-lg-5">
-      <input matInput formControlName="startDate" placeholder="From" [max]="minDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate,endDate)"
+    <mat-form-field class="w-100"> 
+      <input matInput formControlName="startDate" placeholder="Choose date"  [max]="minDate" [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="addEvent(startDate)"
         readonly="true">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-  
-  <mat-form-field class="col-lg-5">
-      <input matInput formControlName="endDate" placeholder="To" [matDatepicker]="picker2" [min]="minDate" [(ngModel)]="endDate" (dateInput)="addEvent(startDate,endDate)"
-        readonly="true">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-    
-  <i class="material-icons col-lg-2 mt-2" (click)="addEvent(startDate,endDate)">
-    search
-  </i>
+    <i class="material-icons" (click)="navigate(-1)">
+      navigate_before
+    </i>
+    <i class="material-icons" (click)="navigate(1)">
+      navigate_next
+    </i>
+
 </form>

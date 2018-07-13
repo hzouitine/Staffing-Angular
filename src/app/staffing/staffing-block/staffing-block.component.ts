@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnChanges, Input } from '@angular/core';
 import { data } from '../data';
 import { StaffingDateHeaderServiceService } from '../../services/staffing-date-header-service.service';
 import { ExpandServiceService } from '../../services/expand-service.service';
@@ -8,10 +8,12 @@ import { ExpandServiceService } from '../../services/expand-service.service';
   templateUrl: './staffing-block.component.html',
   styleUrls: ['./staffing-block.component.scss']
 })
-export class StaffingBlockComponent implements OnInit {
+export class StaffingBlockComponent implements OnInit, OnChanges {
   resourceInfo = {
     name: "ResourcePercall", Loc: "Sale", Tech: "SI", M: "100%", M1: "100%", M2: "100%", M3: "100%", M4: "100%", Year: "100%",
-  }
+  };
+  @Input() from;
+  @Input() to;
   project: string = "Staffing Project";
   statusStaffing = [];
   dureeStaffing = [];
@@ -25,14 +27,18 @@ export class StaffingBlockComponent implements OnInit {
   tabDureeStaffing() {
     let tab = [];
     let d = ["1d", "1/2d", ""];
+
     for (let i = 0; i < this.size; i++) {
       tab.push(d[Math.floor(d.length * Math.random())]);
     }
     this.dureeStaffing.push(tab);
   }
   ngOnInit() {
+    this.dureeStaffing = [];
+    this.statusStaffing = [];
+
     this.data = data;
-    this.size = this.staffingServiceHeader.parse(this.data.from, this.data.to).days.length;
+    this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
     console.log('d', data);
 
 
@@ -49,8 +55,13 @@ export class StaffingBlockComponent implements OnInit {
   }
 
   ngOnChanges() {
-    this.size = this.staffingServiceHeader.parse(this.data.from, this.data.to).days.length;
+    this.dureeStaffing = [];
+    this.statusStaffing = [];
+    console.log('ngOnchanges');
+    console.log('this.size before', this.size);
 
+    this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
+    console.log('this.size after', this.size);
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < this.size; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
