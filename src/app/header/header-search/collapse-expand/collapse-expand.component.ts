@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../../../staffing/data';
 import * as moment from 'moment';
+import { ExpandServiceService } from '../../../services/expand-service.service';
 @Component({
   selector: 'app-collapse-expand',
   templateUrl: './collapse-expand.component.html',
@@ -8,15 +9,12 @@ import * as moment from 'moment';
 })
 export class CollapseExpandComponent implements OnInit {
 
-  constructor() { }
+  constructor(private expandServiceService: ExpandServiceService) { }
 
   ngOnInit() {
   }
 
-  click() {
-    data.from = moment(data.from, 'DD-MM-YYYY').add(30, 'days').format('DD-MM-YYYY');
-    data.to = moment(data.to, 'DD-MM-YYYY').add(30, 'days').format('DD-MM-YYYY');
-
-    console.log('CollapseExpandComponent', data);
+  click(e: boolean) {
+    this.expandServiceService.sendExpand(e);
   }
 }

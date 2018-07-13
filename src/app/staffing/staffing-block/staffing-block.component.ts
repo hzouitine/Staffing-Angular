@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { data } from '../data';
 import { StaffingDateHeaderServiceService } from '../../services/staffing-date-header-service.service';
+import { ExpandServiceService } from '../../services/expand-service.service';
 
 @Component({
   selector: '[app-staffing-block]',
@@ -16,7 +17,10 @@ export class StaffingBlockComponent implements OnInit {
   dureeStaffing = [];
   data;
   size;
-  constructor(private staffingServiceHeader: StaffingDateHeaderServiceService) { }
+  expand = true;
+  constructor(private staffingServiceHeader: StaffingDateHeaderServiceService, private expandServiceService: ExpandServiceService) {
+    expandServiceService.$expand.subscribe(e => this.expand = e);
+  }
 
   tabDureeStaffing() {
     let tab = [];
@@ -44,9 +48,9 @@ export class StaffingBlockComponent implements OnInit {
     this.tabDureeStaffing();
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.size = this.staffingServiceHeader.parse(this.data.from, this.data.to).days.length;
-    
+
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < this.size; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");

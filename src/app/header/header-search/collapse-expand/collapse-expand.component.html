@@ -1,5 +1,5 @@
 <div class="row px-2">
-  <button (click)="click()" class="col-md-6 btn btn-secondary p-0">
+  <button (click)="click(true)" class="col-md-6 btn btn-secondary p-0">
     Expand all
     <i class="material-icons text-warning">
       expand_more
@@ -7,7 +7,7 @@
 
 
   </button>
-  <button class="col-md-6 btn btn-secondary p-0">
+  <button (click)="click(false)" class="col-md-6 btn btn-secondary p-0">
     Collapse all
     <i class="material-icons text-success">
       expand_less

@@ -6,7 +6,7 @@ import { Subject } from '../../../node_modules/rxjs';
 })
 export class ExpandServiceService {
 
-  expand = new Subject<string>();
+  expand = new Subject<boolean>();
 
   $expand = this.expand.asObservable();
   constructor() {
