@@ -38,6 +38,9 @@ export class RowStaffingComponent implements OnInit {
     }
   }
 
+  onDragend() {
+    this.draggedTd = null;
+  }
   onDrop(e) {
     e.preventDefault();
     e.stopPropagation();
