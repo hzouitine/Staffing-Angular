@@ -1,8 +1,11 @@
+$width1 : 40px;
+
+
 .staff {
   resize: horizontal;
   overflow-x: auto;
-  padding: 0px;
-  width: 40px;
-  min-width: 40px;
+  padding: 0;
+  width: $width1;
+  min-width: $width1;
   position: absolute;
 }
