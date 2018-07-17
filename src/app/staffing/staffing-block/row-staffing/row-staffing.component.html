@@ -2,5 +2,8 @@
 <td draggable="true" (dragstart)="onDragstart($event)" (dragover)="onDragover($event)" 
 (drop)="onDrop($event)" (dragend)="onDragend()"
   *ngFor="let d of dureeStaffing" class="px-0">
-  <div *ngIf="d" (dblclick)='detailStaffing()' (mousedown)="onMousedown($event)" (mouseup)="calculate($event)" class="staff btn-primary btn-sm">{{d}}</div>
+  <div *ngIf="d" (dblclick)='detailStaffing()' 
+  (mousedown)="onMousedown($event)" 
+  (mouseup)="calculate($event)" 
+  class="staff btn-primary btn-sm">{{d}}</div>
 </td>

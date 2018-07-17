@@ -29,11 +29,10 @@ export class RowStaffingComponent implements OnInit {
 
 
   calculate(e) {
+    const width = 40;
+    e.target.style.zIndex = "0";
     const w = parseInt(e.target.style.width);
-    if (w < 40) {
-      e.target.style.width = "40px";
-    }
-    const num = Math.floor(w / 40) + (w % 40 > 20 ? 1 : 0);
+    const num = Math.floor(w / width) + (w % width > width / 2 ? 1 : 0);
     console.log("number of days", num);
   }
 
