@@ -39,7 +39,7 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
 
     this.data = data;
     this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
-    console.log('d', data);
+    //console.log('d', data);
 
 
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
@@ -50,18 +50,18 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
 
   }
   increment(e) {
-    console.log(e);
+    //console.log(e);
     this.tabDureeStaffing();
   }
 
   ngOnChanges() {
     this.dureeStaffing = [];
     this.statusStaffing = [];
-    console.log('ngOnchanges');
-    console.log('this.size before', this.size);
+    //console.log('ngOnchanges');
+    //console.log('this.size before', this.size);
 
     this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
-    console.log('this.size after', this.size);
+    //console.log('this.size after', this.size);
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < this.size; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");

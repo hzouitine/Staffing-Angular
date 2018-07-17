@@ -27,6 +27,19 @@ export class RowStaffingComponent implements OnInit {
 
   }
 
+
+  calculate(e) {
+    const w = parseInt(e.target.style.width);
+    if (w < 40) {
+      e.target.style.width = "40px";
+    }
+    const num = Math.floor(w / 40) + (w % 40 > 20 ? 1 : 0);
+    console.log("number of days", num);
+  }
+
+  onMousedown(e) {
+    e.target.style.zIndex = "1";
+  }
   onDragstart(e) {
     this.draggedTd = e.target;
   }
