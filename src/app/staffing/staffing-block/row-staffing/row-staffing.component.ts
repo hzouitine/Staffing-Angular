@@ -32,7 +32,7 @@ export class RowStaffingComponent implements OnInit {
   }
 
   onDragover(e) {
-    if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('button') && this.draggedTd) {
+    if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('div') && this.draggedTd) {
       e.preventDefault();
       e.stopPropagation();
     }
@@ -46,7 +46,7 @@ export class RowStaffingComponent implements OnInit {
     e.stopPropagation();
     e.target.classList.remove('bg-info');
     e.target.classList.remove('bg-danger');
-    e.target.append(this.draggedTd.querySelector('button'));
+    e.target.append(this.draggedTd.querySelector('div'));
     this.draggedTd = null;
   }
 
