@@ -28,7 +28,11 @@ export class RowStaffingComponent implements OnInit {
   }
 
   onDragstart(e) {
-    this.draggedTd = e.target;
+    console.log(e.target);
+    e.stopPropagation();
+    if (e.target.tagName && e.target.getAttribute("draggable") === "true") {
+      this.draggedTd = e.target;
+    }
   }
 
   onDragover(e) {
@@ -44,8 +48,8 @@ export class RowStaffingComponent implements OnInit {
   onDrop(e) {
     e.preventDefault();
     e.stopPropagation();
-    e.target.classList.remove('bg-info');
-    e.target.classList.remove('bg-danger');
+    e.target.setAttribute("draggable", "true");
+    this.draggedTd.setAttribute("draggable", "false");
     e.target.append(this.draggedTd.querySelector('button'));
     this.draggedTd = null;
   }
