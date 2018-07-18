@@ -1,16 +1,12 @@
-<div class="row px-2">
-  <button (click)="click(true)" class="col-md-6 btn btn-secondary p-0">
-    Expand all
-    <i class="material-icons text-warning">
-      expand_more
-    </i>
-
-
-  </button>
-  <button (click)="click(false)" class="col-md-6 btn btn-secondary p-0">
-    Collapse all
+<button type="button" class="btn btn-outline-dark" (click)="click(!isExpanded)">
+  <ng-container *ngIf="isExpanded">
     <i class="material-icons text-success">
       expand_less
-    </i>
-  </button>
-</div>
+    </i> Collapse all
+  </ng-container>
+  <ng-container *ngIf="!isExpanded">
+    <i class="material-icons text-warning">
+      expand_more
+    </i> Expand all
+  </ng-container>
+</button>
