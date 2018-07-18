@@ -6,6 +6,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { CollapseExpandComponent } from './collapse-expand/collapse-expand.component';
 import { MaterialModule } from '../../module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddResourcesComponent } from './add-resources/add-resources.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderSearchComponent,
     DateRangeComponent,
     PaginationComponent,
-    CollapseExpandComponent],
+    CollapseExpandComponent,
+    AddResourcesComponent],
   exports: [HeaderSearchComponent,
     DateRangeComponent,
     PaginationComponent,
