@@ -27,12 +27,24 @@ export class RowStaffingComponent implements OnInit {
 
   }
 
+
+  calculate(e) {
+    const width = 40;
+    e.target.style.zIndex = "0";
+    const w = parseInt(e.target.style.width);
+    const num = Math.floor(w / width) + (w % width > width / 2 ? 1 : 0);
+    console.log("number of days", num);
+  }
+
+  onMousedown(e) {
+    e.target.style.zIndex = "1";
+  }
   onDragstart(e) {
     this.draggedTd = e.target;
   }
 
   onDragover(e) {
-    if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('button') && this.draggedTd) {
+    if (e.target.tagName.toUpperCase() === 'TD' && !e.target.querySelector('div') && this.draggedTd) {
       e.preventDefault();
       e.stopPropagation();
     }
@@ -46,7 +58,7 @@ export class RowStaffingComponent implements OnInit {
     e.stopPropagation();
     e.target.classList.remove('bg-info');
     e.target.classList.remove('bg-danger');
-    e.target.append(this.draggedTd.querySelector('button'));
+    e.target.append(this.draggedTd.querySelector('div'));
     this.draggedTd = null;
   }
 
