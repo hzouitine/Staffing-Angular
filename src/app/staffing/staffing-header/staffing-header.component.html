@@ -1,8 +1,5 @@
 <tr>
   <td colspan="9" rowspan="2">
-    <i class="material-icons toggle" data-toggle="collapse" data-target="#header" aria-expanded="false" aria-controls="header">
-      menu
-    </i>
   </td>
   <ng-container *ngFor="let m of data.months">
     <td class="text-center" *ngIf="m.week > 0" [attr.colspan]="m.week">{{m.month}}</td>
