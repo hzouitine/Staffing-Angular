@@ -7,6 +7,7 @@ import { CollapseExpandComponent } from './collapse-expand/collapse-expand.compo
 import { MaterialModule } from '../../module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddResourcesComponent } from './add-resources/add-resources.component';
+import { ResourcesListComponent } from './add-resources/resources-list/resources-list.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { AddResourcesComponent } from './add-resources/add-resources.component';
     DateRangeComponent,
     PaginationComponent,
     CollapseExpandComponent,
-    AddResourcesComponent],
+    AddResourcesComponent,
+    ResourcesListComponent],
   exports: [HeaderSearchComponent,
     DateRangeComponent,
     PaginationComponent,
