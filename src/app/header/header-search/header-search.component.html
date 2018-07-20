@@ -1,15 +1,16 @@
 <div class="row mx-4">
-  <div class="col-md-4">
+  <div class="col-md-3">
     <app-date-range class="w-100"></app-date-range>
   </div>
-  <div class="col-md-8 text-right">
-      <app-add-resources></app-add-resources>
-    <button type="button" class="btn btn-outline-dark toggle mr-1" data-toggle="collapse" data-target="#header-filter" aria-expanded="false"
-      aria-controls="header">
-      <i class="material-icons">
-        menu
-      </i> Filters</button>
-
-    <app-collapse-expand></app-collapse-expand>
+  <div class="col-md-9 d-flex justify-content-between">
+    <app-add-resources></app-add-resources>
+    <span>
+      <button type="button" class="btn text-right btn-outline-dark toggle mr-1" data-toggle="collapse" data-target="#header-filter" aria-expanded="false"
+        aria-controls="header">
+        <i class="material-icons">
+          menu
+        </i> Filters</button>
+      <app-collapse-expand></app-collapse-expand>
+      </span>
   </div>
 </div>
