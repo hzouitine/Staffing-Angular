@@ -23,8 +23,9 @@ export class RowResourceComponent implements OnInit {
       data: { resourceName: this.resourceInfo.name }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.size.emit(1);
+      if (result !== undefined) {
+        this.size.emit(1);
+      }
     });
   }
 
@@ -33,6 +34,6 @@ export class RowResourceComponent implements OnInit {
   }
 
   ngOnChanges() {
- 
+
   }
 }

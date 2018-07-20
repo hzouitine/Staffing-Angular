@@ -1,5 +1,18 @@
-<button type="button" style="border-radius: 50%" class="p-1 btn btn-outline-dark toggle mr-1" (click)="createModel()">
-  <i class="material-icons">
-    add
-  </i>
-</button>
+<div class="row">
+
+  <ng-container *ngFor="let i of length">
+
+
+    <div class="col p-0 mr-1" style="border-radius: 50%">
+      <img style="border-radius: 50%" src="{{i}}" width="40px" height="40px"> </div>
+  </ng-container>
+
+  <button type="button" 
+  style="border-radius: 50%; width:40px !important; height:40px!important;" 
+  class="p-1 btn btn-outline-dark toggle mr-1 col"
+    (click)="createModel()">
+    <i class="material-icons">
+      add
+    </i>
+  </button>
+</div>
