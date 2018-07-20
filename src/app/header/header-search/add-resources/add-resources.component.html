@@ -1,0 +1,14 @@
+<div class="d-flex just-centent-left">
+  <ng-container *ngFor="let i of length">
+    <div class=" p-0 mr-1" style="border-radius: 50%">
+      <img style="border-radius: 50%" src="{{i}}" width="30px" height="30px"> </div>
+  </ng-container>
+
+  <button type="button" style="border-radius: 50%; width:30px !important; height:30px!important;" 
+  class="p-1 btn btn-outline-dark toggle mr-1 "
+    (click)="createModel()">
+    <i class="material-icons text-primary">
+      add
+    </i>
+  </button>
+</div>

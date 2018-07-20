@@ -11,10 +11,12 @@ export class CollapseExpandComponent implements OnInit {
 
   constructor(private expandServiceService: ExpandServiceService) { }
 
+  isExpanded = true;
   ngOnInit() {
   }
 
   click(e: boolean) {
     this.expandServiceService.sendExpand(e);
+    this.isExpanded = !this.isExpanded;
   }
 }
