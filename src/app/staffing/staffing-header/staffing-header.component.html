@@ -9,15 +9,15 @@
   <td class="text-center table-warning" *ngFor="let week of data.weeks" [attr.colspan]="week.dayNum">{{"w"+week.week}}</td>
 </tr>
 <tr>
-  <td style="position: sticky;" class="text-bold">Name</td>
-  <td class="text-bold">Loc</td>
-  <td class="text-bold">Tech</td>
-  <td class="text-bold">M</td>
-  <td class="text-bold">M+1</td>
-  <td class="text-bold">M+2</td>
-  <td class="text-bold">M+3</td>
-  <td class="text-bold">M+4</td>
-  <td class="text-bold">Year</td>
+  <th scope="col">Name</th>
+  <th scope="col">Loc</th>
+  <th scope="col">Tech</th>
+  <th scope="col">M</th>
+  <th scope="col">M+1</th>
+  <th scope="col">M+2</th>
+  <th scope="col">M+3</th>
+  <th scope="col">M+4</th>
+  <th scope="col">Year</th>
   <td *ngFor="let day of data.days" class="day">{{day}}</td>
 
 </tr>
