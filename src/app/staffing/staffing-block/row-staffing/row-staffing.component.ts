@@ -31,7 +31,7 @@ export class RowStaffingComponent implements OnInit {
   calculate(e) {
     const width = 40;
     e.target.style.zIndex = "0";
-    const w = parseInt(e.target.style.width);
+    const w = parseInt(window.getComputedStyle(e.target, null).getPropertyValue("width"));
     const num = Math.floor(w / width) + (w % width > width / 2 ? 1 : 0);
     console.log("number of days", num);
   }
