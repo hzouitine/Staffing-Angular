@@ -9,6 +9,7 @@ import { MaterialModule } from './module/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { StaffingModule } from './staffing/staffing.module';
 import * as moment from 'moment';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
 moment.locale('fr');
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ moment.locale('fr');
     HeaderModule,
     StaffingModule,
     MaterialModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],
