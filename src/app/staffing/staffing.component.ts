@@ -28,9 +28,6 @@ export class StaffingComponent implements OnInit {
   }
 
   fetchData() {
-    console.log("##FetchDAta");
-    console.log(this.fromDate);
-    console.log(this.toDate);
     this.fetchDataService.getData(this.fromDate, this.toDate)
       .subscribe(res => {
         this.data = res;

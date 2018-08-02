@@ -1,7 +1,7 @@
 <form [formGroup]="dateRangeForm" class="d-flex justify-content-between" >
 
     <mat-form-field class="w-100"> 
-      <input matInput formControlName="startDate" placeholder="Choose date" [matDatepicker]="picker" (dateInput)="addEvent(startDate)"
+      <input matInput formControlName="startDate" placeholder="Choose date" [matDatepicker]="picker" (dateInput)="addEvent()"
         readonly="true">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>

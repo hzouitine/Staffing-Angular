@@ -27,10 +27,9 @@ export class DateRangeComponent implements OnInit {
   ngOnInit() {
 
   }
-  addEvent(startDate) {
-
-    this.fromDate = moment(startDate).format('YYYY-MM-DD');
-    this.toDate = moment(startDate).add(2, 'M').format('YYYY-MM-DD');
+  addEvent() {
+    this.fromDate = moment(this.dateRangeForm.get('startDate').value).format('YYYY-MM-DD');
+    this.toDate = moment(this.dateRangeForm.get('startDate').value).add(2, 'M').format('YYYY-MM-DD');
     this.dataService.dateChanged(this.fromDate, this.toDate);
 
   }
