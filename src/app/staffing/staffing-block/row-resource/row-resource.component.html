@@ -9,6 +9,6 @@
 <td>{{resourceInfo.Year}}</td>
 <td *ngFor="let status of statusStaffing" class="p-0" 
 style="border : none;vertical-align: bottom;">
-  <div [ngClass]="status"></div>
+  <div [ngClass]="status?.type "></div>
 </td>
 

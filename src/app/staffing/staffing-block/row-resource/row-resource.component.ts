@@ -34,6 +34,6 @@ export class RowResourceComponent implements OnInit {
   }
 
   ngOnChanges() {
-
+    console.log('statusStaffing', this.statusStaffing);
   }
 }
