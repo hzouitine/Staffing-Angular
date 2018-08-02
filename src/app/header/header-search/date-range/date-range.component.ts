@@ -21,8 +21,7 @@ export class DateRangeComponent implements OnInit {
     this.toDate = moment().add(2, 'M').format('YYYY-MM-DD');
 
     this.dateRangeForm = new FormGroup({
-      startDate: new FormControl(),
-      endDate: new FormControl()
+      startDate: new FormControl()
     });
   }
 
@@ -44,6 +43,8 @@ export class DateRangeComponent implements OnInit {
       this.fromDate = moment(this.fromDate, 'YYYY-MM-DD').subtract(2, 'M').format('YYYY-MM-DD');
       this.toDate = moment(this.toDate, 'YYYY-MM-DD').subtract(2, 'M').format('YYYY-MM-DD');
     }
+
+    this.dateRangeForm.get('startDate').setValue(this.fromDate);
     this.dataService.dateChanged(this.fromDate, this.toDate);
   }
 
