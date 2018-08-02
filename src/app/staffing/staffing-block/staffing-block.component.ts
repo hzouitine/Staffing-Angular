@@ -2,6 +2,7 @@ import { Component, OnInit, Output, OnChanges, Input } from '@angular/core';
 import { data } from '../data';
 import { StaffingDateHeaderServiceService } from '../../services/staffing-date-header-service.service';
 import { ExpandServiceService } from '../../services/expand-service.service';
+import { ParseDataService } from '../../services/parse-data.service';
 
 @Component({
   selector: '[app-staffing-block]',
@@ -14,13 +15,16 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
   };
   @Input() from;
   @Input() to;
+
   project: string = "Staffing Project";
   statusStaffing = [];
   dureeStaffing = [];
   data;
   size;
   expand = true;
-  constructor(private staffingServiceHeader: StaffingDateHeaderServiceService, private expandServiceService: ExpandServiceService) {
+  constructor(private staffingServiceHeader: StaffingDateHeaderServiceService
+    , private expandServiceService: ExpandServiceService,
+    private parseDataService: ParseDataService) {
     expandServiceService.$expand.subscribe(e => this.expand = e);
   }
 
@@ -67,7 +71,6 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");
     }
     this.tabDureeStaffing();
-
   }
 
 }
