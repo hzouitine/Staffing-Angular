@@ -20,4 +20,19 @@ export class ParseDataService {
     return range;
   }
 
+  dataToResourceInfo(resourceData) {
+    return {
+      id: resourceData.id,
+      name: resourceData.name,
+      loc: resourceData.loc,
+      tech: resourceData.tech,
+      M: '',
+      M1: '',
+      M2: '',
+      M3: '',
+      M4: '',
+      Year: ''
+    };
+  }
+
 }
