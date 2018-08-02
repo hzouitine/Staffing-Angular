@@ -15,11 +15,11 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
   };
   @Input() from;
   @Input() to;
+  @Input() data;
 
   project: string = "Staffing Project";
   statusStaffing = [];
   dureeStaffing = [];
-  data;
   size;
   expand = true;
   constructor(private staffingServiceHeader: StaffingDateHeaderServiceService
@@ -41,9 +41,7 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
     this.dureeStaffing = [];
     this.statusStaffing = [];
 
-    this.data = data;
     this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
-    //console.log('d', data);
 
 
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
@@ -54,18 +52,13 @@ export class StaffingBlockComponent implements OnInit, OnChanges {
 
   }
   increment(e) {
-    //console.log(e);
     this.tabDureeStaffing();
   }
 
   ngOnChanges() {
     this.dureeStaffing = [];
     this.statusStaffing = [];
-    //console.log('ngOnchanges');
-    //console.log('this.size before', this.size);
-
     this.size = this.staffingServiceHeader.parse(this.from, this.to).days.length;
-    //console.log('this.size after', this.size);
     let colors = ["bg-success", "bg-danger", "bg-secondary"];
     for (let i = 0; i < this.size; i++) {
       this.statusStaffing.push(colors[Math.floor(colors.length * Math.random())] + " px-0 py-2");

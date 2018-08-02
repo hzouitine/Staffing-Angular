@@ -1,7 +1,7 @@
-<ng-container *ngFor="let d of data.block.slice(0,3)">
-  <tr app-row-resource (size)="increment($event)" [statusStaffing]="statusStaffing" [resourceInfo]="d.resource"></tr>
-  <ng-container *ngFor="let p of d.projects">
-    <tr [hidden]="!expand" *ngFor="let dur of dureeStaffing" app-row-staffing [dureeStaffing]="dur" [project]="p.project.projectName">
+<ng-container *ngFor="let d of data">
+  <tr app-row-resource (size)="increment($event)" [statusStaffing]="statusStaffing" [resourceInfo]="d?.resource"></tr>
+  <ng-container *ngFor="let p of d.employeesProject">
+    <tr [hidden]="!expand" app-row-staffing [dureeStaffing]="parseDataService.dataToStaffings(p.staffings,from,to)" [project]="p.refProject.name">
     </tr>
   </ng-container>
 </ng-container>
