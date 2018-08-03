@@ -11,7 +11,7 @@ export class ParseDataService {
   dataToStaffings(staffings, fromDate, toDate) {
     const date = moment(fromDate, 'YYYY-MM-DD');
     const endDate = moment(toDate, 'YYYY-MM-DD');
-    const length = endDate.diff(date, 'days');
+    const length = endDate.diff(date, 'days') + 1;
     const range = new Array(length);
     staffings.forEach((item) => {
       const index = -1 * moment(fromDate, 'YYYY-MM-DD').diff(moment(item.dateStaffing), 'days');
@@ -38,7 +38,7 @@ export class ParseDataService {
   parseStatusStaffings(statusStaffings, fromDate, toDate) {
     const date = moment(fromDate, 'YYYY-MM-DD');
     const endDate = moment(toDate, 'YYYY-MM-DD');
-    const length = endDate.diff(date, 'days');
+    const length = endDate.diff(date, 'days') + 1 ;
     const status = new Array(length);
     statusStaffings.forEach((item) => {
       const index = -1 * moment(fromDate, 'YYYY-MM-DD').diff(moment(item.dateStatusStaffing), 'days');
