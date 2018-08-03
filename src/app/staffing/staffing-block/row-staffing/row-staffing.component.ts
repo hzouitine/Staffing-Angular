@@ -65,7 +65,7 @@ export class RowStaffingComponent implements OnInit {
     const dateToPutItemOn = MomentToPutItemOn.add(index, 'days').format('YYYY-MM-DD')
     console.log(dateToPutItemOn);
     console.log(this.draggedItem);
-    this.crudStaffingService.updateStaffing(this.draggedItem, dateToPutItemOn);
+    this.crudStaffingService.updateStaffing(this.draggedItem, dateToPutItemOn, this.startDate);
     e.preventDefault();
     e.stopPropagation();
     e.target.append(this.draggedTd.querySelector('div'));

@@ -13,13 +13,10 @@ export class StaffingHeaderComponent implements OnInit, OnChanges {
   constructor(private staffingDateHeaderServiceService: StaffingDateHeaderServiceService) { }
 
   ngOnInit() {
-    //console.log('from', this.from);
-    //console.log('to', this.to);
     this.data = this.staffingDateHeaderServiceService.parse(this.from, this.to);
   }
 
   ngOnChanges() {
-    //console.log('ngOnChanges in heaader');
     this.data = this.staffingDateHeaderServiceService.parse(this.from, this.to);
   }
 

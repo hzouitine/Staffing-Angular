@@ -14,6 +14,12 @@ export class StaffingComponent implements OnInit {
   fromDate: any;
   constructor(private fetchDataService: FetchDataService,
     private dataService: DateService) {
+
+    fetchDataService.$data
+      .subscribe((res) => {
+        console.log('fetchDataService.$data', res);
+        this.data = res;
+      });
     this.fromDate = moment().format('YYYY-MM-DD');
     this.toDate = moment().add(2, 'M').format('YYYY-MM-DD');
     dataService.$date.subscribe(date => {
@@ -28,11 +34,6 @@ export class StaffingComponent implements OnInit {
   }
 
   fetchData() {
-    this.fetchDataService.getData(this.fromDate, this.toDate)
-      .subscribe(res => {
-        this.data = res;
-      }
-      );
+    this.fetchDataService.getData(this.fromDate, this.toDate);
   }
-
 }
