@@ -1,7 +1,7 @@
 <ng-container *ngFor="let d of data">
   <tr app-row-resource (size)="increment($event)" [statusStaffing]="parseDataService.parseStatusStaffings(d.statusStaffings,from,to)" [resourceInfo]="parseDataService.dataToResourceInfo(d)"></tr>
   <ng-container *ngFor="let p of d.employeesProject">
-    <tr [hidden]="!expand" app-row-staffing [dureeStaffing]="parseDataService.dataToStaffings(p.staffings,from,to)" [project]="p.refProject.name">
+    <tr [hidden]="!expand" app-row-staffing [startDate]="from" [dureeStaffing]="parseDataService.dataToStaffings(p.staffings,from,to)" [project]="p.refProject.name">
     </tr>
   </ng-container>
 </ng-container>

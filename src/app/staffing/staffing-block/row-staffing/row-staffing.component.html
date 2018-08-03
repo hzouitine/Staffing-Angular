@@ -1,7 +1,7 @@
 <td colspan="9" class="bg-light pl-3">{{project}}</td>
-<td draggable="true" (dragstart)="onDragstart($event)" (dragover)="onDragover($event)" 
-(drop)="onDrop($event)" (dragend)="onDragend()"
-  *ngFor="let d of dureeStaffing" class="px-0">
+<td draggable="true" (dragstart)="onDragstart($event,d)" (dragover)="onDragover($event)" 
+(drop)="onDrop($event,i)" (dragend)="onDragend()"
+  *ngFor="let d of dureeStaffing; let i=index" class="px-0">
   <div *ngIf="d" (dblclick)='detailStaffing()' 
   (mousedown)="onMousedown($event)" 
   (mouseup)="calculate($event)" 

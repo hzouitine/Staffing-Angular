@@ -3,8 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { FormGroup } from '@angular/forms';
 import { StaffingDetailsComponent } from '../staffing-details/staffing-details.component';
-
-
+import * as moment from 'moment';
 import { CreateStaffingComponent } from '../create-staffing/create-staffing.component';
 
 
@@ -17,8 +16,10 @@ export class RowStaffingComponent implements OnInit {
 
   @Input() dureeStaffing = [];
   @Input() project: string;
+  @Input() startDate;
   dragov = false;
   draggedTd: any = null;
+  draggedItem: any = null;
 
   dialogRef: any;
   constructor(public dialog: MatDialog) { }
@@ -39,8 +40,10 @@ export class RowStaffingComponent implements OnInit {
   onMousedown(e) {
     e.target.style.zIndex = "1";
   }
-  onDragstart(e) {
+  onDragstart(e,item) {
     this.draggedTd = e.target;
+    this.draggedItem = item;
+
   }
 
   onDragover(e) {
@@ -52,17 +55,24 @@ export class RowStaffingComponent implements OnInit {
 
   onDragend() {
     this.draggedTd = null;
+    this.draggedItem = null;
+
   }
-  onDrop(e) {
+  onDrop(e, index) {
+    const MomentToPutItemOn = moment(this.startDate, 'YYYY-MM-DD');
+    const dateToPutItemOn = MomentToPutItemOn.add(index, 'days').format('YYYY-MM-DD')
+    console.log(dateToPutItemOn);
+    console.log(this.draggedItem);
+
     e.preventDefault();
     e.stopPropagation();
-    e.target.classList.remove('bg-info');
-    e.target.classList.remove('bg-danger');
     e.target.append(this.draggedTd.querySelector('div'));
     this.draggedTd = null;
+    this.draggedItem = null;
+
   }
 
-  detailStaffing() {
+  detailStaffing( ) {
 
     const staffing = {
       title: 'Resource X Staffing-details',
