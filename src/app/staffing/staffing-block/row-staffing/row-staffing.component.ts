@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { StaffingDetailsComponent } from '../staffing-details/staffing-details.component';
 import * as moment from 'moment';
 import { CreateStaffingComponent } from '../create-staffing/create-staffing.component';
+import { CrudStaffingService } from '../../../services/crud-staffing.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class RowStaffingComponent implements OnInit {
   draggedItem: any = null;
 
   dialogRef: any;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private crudStaffingService: CrudStaffingService) { }
 
   ngOnInit() {
 
@@ -40,7 +42,7 @@ export class RowStaffingComponent implements OnInit {
   onMousedown(e) {
     e.target.style.zIndex = "1";
   }
-  onDragstart(e,item) {
+  onDragstart(e, item) {
     this.draggedTd = e.target;
     this.draggedItem = item;
 
@@ -63,7 +65,7 @@ export class RowStaffingComponent implements OnInit {
     const dateToPutItemOn = MomentToPutItemOn.add(index, 'days').format('YYYY-MM-DD')
     console.log(dateToPutItemOn);
     console.log(this.draggedItem);
-
+    this.crudStaffingService.updateStaffing(this.draggedItem, dateToPutItemOn);
     e.preventDefault();
     e.stopPropagation();
     e.target.append(this.draggedTd.querySelector('div'));
@@ -72,7 +74,7 @@ export class RowStaffingComponent implements OnInit {
 
   }
 
-  detailStaffing( ) {
+  detailStaffing() {
 
     const staffing = {
       title: 'Resource X Staffing-details',
